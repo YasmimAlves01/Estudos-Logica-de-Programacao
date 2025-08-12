@@ -31,6 +31,7 @@ int main(){
     cin >> numero1;
 
     cout << "numero escolhido: " << numero1 << "\n";
+    cout << "";
 
     // somando um na variavel
     numero1 = numero1 + 1;
