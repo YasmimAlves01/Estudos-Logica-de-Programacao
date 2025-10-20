@@ -15,11 +15,13 @@ struct NO {
 };
 
 NO* primeiro = NULL;
+NO* ultimo = NULL;
 
 void menu();
 void ficha();
 void exibir();
 void excluir();
+void exibirTodas();
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
@@ -35,8 +37,8 @@ void menu(){
     cout << "Digite a opção que deseja preencher: \n";
     cout << "1 - Preencher Fixa" << endl;
     cout << "2 - Exibir ficha" << endl;
-    cout << "3 - apelido" << endl;
-    cout << "4 -  idade" << endl;
+    cout << "3 - Excluir ficha" << endl;
+    cout << "4 -  Exibir todas as fichas" << endl;
     cout << "5 - ano de nascimento" << endl;
     cin >> numeroOpcao;
 
@@ -56,11 +58,9 @@ void menu(){
         case 3:
         excluir();
         break;
- 
-
 
         case 4:
-        cout << "Você escolheu preencher a idade, preencha abaixo: \n";
+        exibirTodas();
        break;
 
 
@@ -76,6 +76,39 @@ void menu(){
     }
   system("pause");
 }
+}
+
+void exibirTodas(){
+    
+}
+
+void excluir(){
+    int excluirFicha;
+    NO* atual = primeiro;
+    NO* anterior = NULL;
+
+    cout << "Digite a ficha que deseja excluir: ";
+    cin >> excluirFicha;
+
+    while(atual->ficha != excluirFicha){
+        atual = atual->proximo;
+    }
+
+    if (anterior == NULL){
+        primeiro = atual->proximo;
+            if(primeiro == NULL){
+                ultimo = NULL;
+            }
+    }else{
+        anterior->proximo = atual->proximo;
+        if(atual->proximo == NULL){
+            ultimo = anterior;
+        }
+    }
+
+    free(atual);
+    cout << "Ficha excluida";
+    
 }
 
 void exibir() {
@@ -108,21 +141,20 @@ void exibir() {
 void ficha(){
 
     NO* atual = primeiro;
-    NO* anterior = NULL;
+    // NO* anterior = NULL;
     NO* novaFicha = new NO();
 
 
     cout<< "Numero da Ficha: \n";
     cin >> novaFicha->ficha;
 
+while(atual != NULL){
     if(atual->ficha == novaFicha->ficha){
         cout << "Ficha ja existente";
         return;
-    }else{
-       anterior = atual;
-       atual =  atual->proximo;
-
     }
+       atual = atual->proximo;
+}
 
     cout << "Preencha a Fixa Abaixo: \n";
     cout << "Nome: ";
