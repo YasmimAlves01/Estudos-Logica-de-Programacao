@@ -1,21 +1,29 @@
 #include <iostream>
 #include <locale.h>
-#include <ctime>
 #include <string>
 
 using namespace std;
 
+struct NO {
+    string nome;
+    string sobrenome;
+    string cpf;
+    string dataNascimento;
+    string andarVisitado;
+    int ficha;
+    NO* proximo;
+};
+
+NO* primeiro = NULL;
+
 void menu();
 void ficha();
+void exibir();
+void excluir();
 
-
-int main(){
-
-    //trata os acentos
+int main() {
     setlocale(LC_ALL, "Portuguese");
-
     menu();
-  
 }
 
 void menu(){
@@ -26,7 +34,7 @@ void menu(){
     
     cout << "Digite a opção que deseja preencher: \n";
     cout << "1 - Preencher Fixa" << endl;
-    cout << "2 - sobrenome" << endl;
+    cout << "2 - Exibir ficha" << endl;
     cout << "3 - apelido" << endl;
     cout << "4 -  idade" << endl;
     cout << "5 - ano de nascimento" << endl;
@@ -41,10 +49,12 @@ void menu(){
         // break = para
 
         case 2:
+        exibir();
         break;
 
 
         case 3:
+        excluir();
         break;
  
 
@@ -64,58 +74,80 @@ void menu(){
         break;
 
     }
-    break;
+  system("pause");
 }
 }
 
+void exibir() {
+    if (primeiro == NULL) {
+        cout << "Não a fichas no sistema\n";
+        return;
+    }
+
+    cout << "Digite o número da ficha: ";
+    int numeroFicha;
+    cin >> numeroFicha;
+
+    NO* atual = primeiro;
+    while (atual != NULL) {
+        if (atual->ficha == numeroFicha) {
+            cout << "Ficha encontrada:\n";
+            cout << "Número: " << atual->ficha << endl;
+            cout << "Nome: " << atual->nome << endl;
+            cout << "Sobrenome: " << atual->sobrenome << endl;
+            cout << "CPF: " << atual->cpf << endl;
+            cout << "Andar Visitado: " << atual->andarVisitado << endl;
+            return;
+        }
+        atual = atual->proximo; // avança para o próximo nó
+    }
+
+    cout << "Ficha não encontrada.\n";
+}
 
 void ficha(){
 
-    string nome, sobrenome, andarVisitado, CPF, dataNascimento, horarioEntrada;
-    
+    NO* atual = primeiro;
+    NO* anterior = NULL;
+    NO* novaFicha = new NO();
+
+
+    cout<< "Numero da Ficha: \n";
+    cin >> novaFicha->ficha;
+
+    if(atual->ficha == novaFicha->ficha){
+        cout << "Ficha ja existente";
+        return;
+    }else{
+       anterior = atual;
+       atual =  atual->proximo;
+
+    }
 
     cout << "Preencha a Fixa Abaixo: \n";
     cout << "Nome: ";
-    cin >> nome;
+    cin >> novaFicha->nome;
 
     cout << "Sobrenome: ";
-    cin >> sobrenome;
+    cin >> novaFicha->sobrenome;
 
     cout << "CPF (Apenas digitos): ";
-    cin >> CPF;
+    cin >> novaFicha->cpf;
 
     cout << "Data de nascimento (DD/MM/AAAA): ";
-    cin >> dataNascimento;
+    cin >> novaFicha->dataNascimento;
 
     cout << "Andar que vai visitar: ";
-    cin >> andarVisitado;
-
-    // Captura o horário atual
-    time_t agora = time(0); // tempo atual em segundos
-    struct tm* tempoLocal = localtime(&agora); // converte para struct tm
-
-    cout << "Horário de entrada: "
-              << tempoLocal->tm_hour << ":"
-              << tempoLocal->tm_min << ":"
-              << tempoLocal->tm_sec << " em "
-              << tempoLocal->tm_mday << "/"
-              << tempoLocal->tm_mon + 1 << "/"
-              << tempoLocal->tm_year + 1900 << std::endl;
+    cin >> novaFicha->andarVisitado;
 
 
     cout << "Informações Apresentadas: \n";
-    cout << "Nome: "<< nome << endl;
-    cout << "Sobrenome: "<< sobrenome << endl;
-    cout << "CPF: "<< CPF << endl;
-    cout << "Data de Nascimento: "<< dataNascimento << endl;
-    cout << "Andar que vai visitar: "<< andarVisitado << endl;
-    cout << "Horário de entrada: "
-              << tempoLocal->tm_hour << ":"
-              << tempoLocal->tm_min << ":"
-              << tempoLocal->tm_sec << " em "
-              << tempoLocal->tm_mday << "/"
-              << tempoLocal->tm_mon + 1 << "/"
-              << tempoLocal->tm_year + 1900 << std::endl;
+    cout << "Nome: "<< novaFicha->nome << endl;
+    cout << "Sobrenome: "<< novaFicha->sobrenome << endl;
+    cout << "CPF: "<< novaFicha->cpf << endl;
+    cout << "Data de Nascimento: "<< novaFicha->dataNascimento << endl;
+    cout << "Andar que vai visitar: "<< novaFicha->andarVisitado << endl;
+
 
     cout << "Por favor confirme se os dados estão corretos (S | N) \n";
     char resposta;
@@ -127,9 +159,11 @@ void ficha(){
     }
     else{
         cout << "Ficha não anexada\n";
-        
+        return;
     }
 
+    novaFicha->proximo = primeiro;
+    primeiro = novaFicha;
 
 }
 
