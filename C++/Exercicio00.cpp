@@ -22,6 +22,7 @@ void ficha();
 void exibir();
 void excluir();
 void exibirTodas();
+void procurar();
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
@@ -39,7 +40,7 @@ void menu(){
     cout << "2 - Exibir ficha" << endl;
     cout << "3 - Excluir ficha" << endl;
     cout << "4 -  Exibir todas as fichas" << endl;
-    cout << "5 - ano de nascimento" << endl;
+    cout << "5 - Procurar Ficha" << endl;
     cin >> numeroOpcao;
 
     switch (numeroOpcao)
@@ -61,11 +62,11 @@ void menu(){
 
         case 4:
         exibirTodas();
-       break;
+        break;
 
 
         case 5:
-        cout << "Você escolheu preencher o ano de nascimento, preencha abaixo: \n";
+        procurar();
         break;
 
         // default =  outro caso
@@ -78,8 +79,55 @@ void menu(){
 }
 }
 
-void exibirTodas(){
+
+void procurar(){
+
+    NO* atual = primeiro;
+    string nome;
     
+    cout<< "Digite o nome que deseja procurar: ";
+    cin >> nome;
+
+    if(primeiro == NULL){
+        cout << "O sistema esta vazio";
+        return;
+    }
+
+    while(atual != NULL){
+        if(atual->nome == nome){
+            cout << "Nome: " << atual->nome << endl;
+            cout << "Sobrenome: " << atual->sobrenome << endl;
+            cout << "CPF: " << atual->cpf << endl;
+            cout << "Andar Visitado: " << atual->andarVisitado << endl;
+        }
+        else{
+            cout << "O nome digitado não consta no sistema\n";
+            return;
+        }
+        atual = atual->proximo;
+
+    }
+
+
+}
+
+void exibirTodas(){
+    NO* atual = primeiro;
+
+    if(primeiro == NULL){
+        cout<< "O sistema se encontra vazio\n";
+        return;
+    }
+
+    while(atual != NULL){
+        cout << "------------------ " << atual->ficha << " ---------------------" << endl;
+        cout << "Nome: " << atual->nome << endl;
+        cout << "Sobrenome: " << atual->sobrenome << endl;
+        cout << "CPF: " << atual->cpf << endl;
+        cout << "Andar Visitado: " << atual->andarVisitado << endl;
+        atual = atual->proximo;
+        cout << "---------------------------------------" << endl;
+    }
 }
 
 void excluir(){
@@ -90,8 +138,15 @@ void excluir(){
     cout << "Digite a ficha que deseja excluir: ";
     cin >> excluirFicha;
 
-    while(atual->ficha != excluirFicha){
-        atual = atual->proximo;
+    while(atual != NULL && atual->ficha != excluirFicha){
+            anterior = atual;
+            atual = atual->proximo;
+
+    }
+
+    if(atual == NULL){
+        cout<<"O sistema se encontra vazio\n";
+        return;
     }
 
     if (anterior == NULL){
@@ -198,7 +253,3 @@ while(atual != NULL){
     primeiro = novaFicha;
 
 }
-
-
-
-
