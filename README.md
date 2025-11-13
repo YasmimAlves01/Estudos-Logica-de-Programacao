@@ -1,6 +1,6 @@
-# 🧠 Meus Exercícios de Programação
+# 🧠 Estudos Logica de Programação
 
-Este repositório é meu espaço pessoal para guardar e organizar exercícios de lógica e programação por linguagem.
+Repositório pessoal para guardar e organizar exercícios de lógica e programação, feitos por mim para fins de estudo e aprimoramento da minha logica de programação.
 
 ## 📌 C++
 
@@ -102,3 +102,4 @@ Este repositório é meu espaço pessoal para guardar e organizar exercícios de
 ---
 
 📌 *Atualizar esta lista sempre que adicionar novos exercícios.*
+_Feito Por *Yasmim Rodrigues Alves*_
