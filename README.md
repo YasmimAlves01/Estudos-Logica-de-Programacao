@@ -4,7 +4,7 @@ Este repositório é meu espaço pessoal para guardar e organizar exercícios de
 
 ## 📌 C++
 
-## 📌 C++ Exercícios
+### Exercicios Base 
 
 - [exer1](C++/exercicio1.cpp)
 - [exer2](C++/exercicio2.cpp)
@@ -19,6 +19,9 @@ Este repositório é meu espaço pessoal para guardar e organizar exercícios de
 - [exer11](C++/exercicio11.cpp)
 - [exer12](C++/exercicio12.cpp)
 - [exer13](C++/exercicio13.cpp)
+
+### Exercicios If/Else |  Operador Ternario | Operações
+  
 - [exer14](C++/exercicio14.cpp)
 - [exer15](C++/exercicio15.cpp)
 - [exer16](C++/exercicio16.cpp)
@@ -35,6 +38,9 @@ Este repositório é meu espaço pessoal para guardar e organizar exercícios de
 - [exer27](C++/exercicio27.cpp)
 - [exer28](C++/exercicio28.cpp)
 - [exer29](C++/exercicio29.cpp)
+
+### Exercicios Switch | While | Do While | For
+  
 - [exer30](C++/exercicio30.cpp)
 - [exer31](C++/exercicio31.cpp)
 - [exer32](C++/exercicio32.cpp)
@@ -47,6 +53,9 @@ Este repositório é meu espaço pessoal para guardar e organizar exercícios de
 - [exer39](C++/exercicio39.cpp)
 - [exer40](C++/exercicio40.cpp)
 - [exer41](C++/exercicio41.cpp)
+
+### Exercicios Funções | Enum
+  
 - [exer42](C++/exercicio42.cpp)
 - [exer43](C++/exercicio43.cpp)
 - [exer44](C++/exercicio44.cpp)
@@ -55,6 +64,9 @@ Este repositório é meu espaço pessoal para guardar e organizar exercícios de
 - [exer47](C++/exercicio47.cpp)
 - [exer48](C++/exercicio48.cpp)
 - [exer49](C++/exercicio49.cpp)
+
+### Exercicios Class | Public e Private
+  
 - [exer50](C++/exercicio50.cpp)
 - [exer51](C++/exercicio51.cpp)
 - [exer51-AUXILIAR](C++/exercicio51-aux.cpp)
