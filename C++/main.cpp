@@ -98,3 +98,22 @@ int main(){
 //     /*a função main diz que retorna um interiro, então colocamos o zero como retorno*/
 //     return 0;
 // }
+
+
+
+// #include <iostream>
+// #include <locale.h>
+// #include <string>
+
+
+// using namespace std;
+
+// int main(){
+
+//     //trata os acentos
+//     setlocale(LC_ALL, "Portuguese");
+
+
+//     system("pause");
+//     return 0;
+// }
