@@ -4,7 +4,7 @@ Este repositório é meu espaço pessoal para guardar e organizar exercícios de
 
 ## 📌 C++
 
-- [exer1]([./C++/exer1.cpp](https://github.com/YasmimAlves01/Estudos-Logica-de-Programacao/blob/main/C%2B%2B/exercicio1.cpp))
+- [exer1](https://github.com/YasmimAlves01/Estudos-Logica-de-Programacao/blob/main/C%2B%2B/exercicio1.cpp)
 - [exer2](./C++/exer2.cpp)
 - [exer3](./C++/exer3.cpp)
 
